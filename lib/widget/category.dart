@@ -10,14 +10,6 @@ class Category extends StatelessWidget {
     return Column(
       children: [
         Container(
-          // margin: EdgeInsets.only(left: 15),
-          // padding: EdgeInsets.all(3),
-          // decoration: BoxDecoration(
-          //   shape: BoxShape.circle,
-          //   gradient: LinearGradient(
-          //     colors: [Colors.pink, Colors.orange, Colors.yellow],
-          //   ),
-          // ),
           child: Container(
             padding: EdgeInsets.all(3),
             decoration: BoxDecoration(
