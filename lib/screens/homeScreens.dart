@@ -1,3 +1,4 @@
+import 'package:assignment_9/screens/loginScreen.dart';
 import 'package:assignment_9/widget/category.dart';
 import 'package:assignment_9/widget/productCart.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,18 @@ class Homescreens extends StatelessWidget {
                 backgroundImage: AssetImage('assets/images/profile.png'),
               ),
               decoration: BoxDecoration(color: Color(0xffF83758)),
+            ),
+            ListTile(
+              leading: Icon(Icons.login),
+              title: Text("Login "),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (context) => const Loginscreen(),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -177,19 +190,23 @@ class Homescreens extends StatelessWidget {
                 ),
               ),
             ),
+
+            SizedBox(height: 15),
             Container(
-              margin: EdgeInsets.all(15),
+              margin: EdgeInsets.symmetric(horizontal: 15),
               height: 200,
+              width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
                 image: DecorationImage(
                   image: AssetImage('assets/images/banner.jpg'),
+                  fit: BoxFit.cover,
                 ),
               ),
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(top: 20, bottom: 20, left: 15),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -198,7 +215,7 @@ class Homescreens extends StatelessWidget {
                           '50-40% OFF',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 34,
+                            fontSize: 30,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
@@ -214,7 +231,7 @@ class Homescreens extends StatelessWidget {
                           'All Colors',
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 5),
                         OutlinedButton(
                           onPressed: () {},
                           child: Text(
@@ -228,6 +245,7 @@ class Homescreens extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SizedBox(height: 5),
                       ],
                     ),
                   ),
@@ -382,25 +400,27 @@ class Homescreens extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [Image.asset('assets/images/offer.png')],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, top: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Special Offers",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 16, top: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Special Offers",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          "We make sure you get the offer you need at best prices",
-                           maxLines: 2,
-                          style: TextStyle(fontSize: 10),
-                        ),
-                      ],
+                          SizedBox(height: 5),
+                          Text(
+                            "We make sure you get the offer you need at best prices",
+                            maxLines: 2,
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -408,7 +428,7 @@ class Homescreens extends StatelessWidget {
             ),
 
             Container(
-              margin: EdgeInsets.all(15),
+              margin: EdgeInsets.symmetric(horizontal: 15),
               height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
@@ -424,12 +444,13 @@ class Homescreens extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
                           'Flat and Heels',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 34,
+                            fontSize: 30,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
@@ -437,7 +458,7 @@ class Homescreens extends StatelessWidget {
                           'Stand a chance to get rewarded',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 18,
+                            fontSize: 14,
                             fontWeight: FontWeight.w100,
                           ),
                         ),
@@ -736,113 +757,25 @@ class Homescreens extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 120, // Bar ki height
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border(
-            top: BorderSide(
-              color: Colors.grey.shade300,
-              width: 1,
-            ), // Oopar wali barik line
+
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: 0,
+        selectedItemColor: Colors.pink,
+        unselectedItemColor: Colors.black,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: "Wishlist",
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment
-              .spaceAround, 
-              crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // 1. Home
-            InkWell(
-              onTap: () {
-                // Click karne par jo action hona hai wo yahan aayega
-                print("Home Clicked!");
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.home_outlined, color: Colors.red.shade900),
-                  const Text(
-                    "Home",
-                    style: TextStyle(color: Colors.red, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-
-            // 2. Wishlist
-            InkWell(
-              onTap: () {
-                // Click karne par jo action hona hai wo yahan aayega
-                print("Home Clicked!");
-              },
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.favorite_border, color: Colors.black),
-                  Text(
-                    "Wishlist",
-                    style: TextStyle(color: Colors.black, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-
-            // 3. Cart
-            InkWell(
-              onTap: () {
-                // Click karne par jo action hona hai wo yahan aayega
-                print("Home Clicked!");
-              },
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.shopping_cart_outlined, color: Colors.black),
-                  Text(
-                    "Cart",
-                    style: TextStyle(color: Colors.black, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-
-            // 4. Search
-            InkWell(
-              onTap: () {
-                // Click karne par jo action hona hai wo yahan aayega
-                print("Home Clicked!");
-              },
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.search, color: Colors.black),
-                  Text(
-                    "Search",
-                    style: TextStyle(color: Colors.black, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-
-            // 5. Setting
-            InkWell(
-              onTap: () {
-                // Click karne par jo action hona hai wo yahan aayega
-                print("Home Clicked!");
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.settings_outlined, color: Colors.black),
-                  Text(
-                    "Setting",
-                    style: TextStyle(color: Colors.black, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: "Cart",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Setting"),
+        ],
       ),
     );
   }
