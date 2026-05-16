@@ -11,19 +11,68 @@ class Homescreens extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFF8F8F8),
       drawer: Drawer(
+        backgroundColor: Colors.white,
         child: Column(
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text("Aliya"),
-              accountEmail: Text("aliya123@gmial.com"),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/profile.png'),
+              accountName: const Text(
+                "Aliya",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
-              decoration: BoxDecoration(color: Color(0xffF83758)),
+              accountEmail: const Text("aliya123@gmail.com"),
+              currentAccountPicture: const CircleAvatar(
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage('assets/images/person.jpg'),
+                ),
+              ),
+              decoration: const BoxDecoration(
+                color: Color(0xffF83758),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+              ),
             ),
+
+            const SizedBox(height: 10),
             ListTile(
-              leading: Icon(Icons.login),
-              title: Text("Login "),
+              leading: const Icon(
+                Icons.home_outlined,
+                color: Color(0xffF83758),
+              ),
+              title: const Text(
+                "Home",
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(
+                Icons.person_outline,
+                color: Color(0xffF83758),
+              ),
+              title: const Text(
+                "My Profile",
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(
+                Icons.login_outlined,
+                color: Color(0xffF83758),
+              ),
+              title: const Text(
+                "Login",
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).push(
@@ -33,6 +82,38 @@ class Homescreens extends StatelessWidget {
                 );
               },
             ),
+
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Divider(color: Colors.grey, thickness: 0.5),
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.settings_outlined, color: Colors.grey),
+              title: const Text(
+                "Settings",
+                style: TextStyle(color: Colors.grey),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            const Spacer(),
+            ListTile(
+              leading: const Icon(Icons.logout, color: Colors.redAccent),
+              title: const Text(
+                "Logout",
+                style: TextStyle(
+                  color: Colors.redAccent,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -62,7 +143,7 @@ class Homescreens extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 15),
             child: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/profile.png'),
+              backgroundImage: AssetImage('assets/images/person.jpg'),
             ),
           ),
         ],

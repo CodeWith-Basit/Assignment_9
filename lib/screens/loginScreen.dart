@@ -68,11 +68,8 @@ class Loginscreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(
-                  0xffF83758,
-                ), // Pink background color
-                foregroundColor: Colors
-                    .white, // Text (aur icon) ka color white karne ke liye
+                backgroundColor: const Color(0xffF83758),
+                foregroundColor: Colors.white,
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -92,21 +89,17 @@ class Loginscreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                padding: const EdgeInsets.all(
-                  2,
-                ), // Border aur Circle ke beech ka gap
+                padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: const Color(0xffF83758),
                     width: 1.5,
-                  ), // Pink Border
+                  ),
                 ),
                 child: const CircleAvatar(
-                  radius: 30, // Icon ka size bada karne ke liye
-                  backgroundColor: Color(
-                    0xffFFF5F6,
-                  ), // Halka pink/white background
+                  radius: 30,
+                  backgroundColor: Color(0xffFFF5F6),
                   child: Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Image(
@@ -123,7 +116,7 @@ class Loginscreen extends StatelessWidget {
                   border: Border.all(
                     color: const Color(0xffF83758),
                     width: 1.5,
-                  ), // Pink Border
+                  ),
                 ),
                 child: const CircleAvatar(
                   radius: 30,
@@ -144,7 +137,7 @@ class Loginscreen extends StatelessWidget {
                   border: Border.all(
                     color: const Color(0xffF83758),
                     width: 1.5,
-                  ), // Pink Border
+                  ),
                 ),
                 child: const CircleAvatar(
                   radius: 30,
@@ -181,10 +174,9 @@ class Loginscreen extends StatelessWidget {
                   "Sign Up",
                   style: TextStyle(
                     fontSize: 16,
-                    color: Color(0xffF83758), // Pink Color
+                    color: Color(0xffF83758),
                     fontWeight: FontWeight.bold,
-                    decoration: TextDecoration
-                        .underline, // Image ki tarah underline ke liye
+                    decoration: TextDecoration.underline,
                   ),
                 ),
               ),

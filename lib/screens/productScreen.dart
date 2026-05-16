@@ -1,4 +1,5 @@
 import 'package:assignment_9/screens/homeScreens.dart';
+import 'package:assignment_9/screens/welcomeScreen.dart';
 import 'package:flutter/material.dart';
 
 class Productscreen extends StatefulWidget {
@@ -44,9 +45,12 @@ class _OnboardingScreenState extends State<Productscreen> {
                 ],
               ),
 
-              const Spacer(), 
+              const Spacer(),
               if (pageNumber == 0) ...[
-                Image.asset('assets/images/fashion shop-rafiki 1.png', height: 250),
+                Image.asset(
+                  'assets/images/fashion shop-rafiki 1.png',
+                  height: 250,
+                ),
                 const SizedBox(height: 30),
                 const Text(
                   "Choose Products",
@@ -61,7 +65,7 @@ class _OnboardingScreenState extends State<Productscreen> {
                 Image.asset(
                   'assets/images/Shopping bag-rafiki 1.png',
                   height: 250,
-                ), 
+                ),
                 const SizedBox(height: 30),
                 const Text(
                   "Make Payment",
@@ -76,7 +80,7 @@ class _OnboardingScreenState extends State<Productscreen> {
                 Image.asset(
                   'assets/images/Sales consulting-pana 1.png',
                   height: 250,
-                ), 
+                ),
                 const SizedBox(height: 30),
                 const Text(
                   "Get Your Order",
@@ -89,7 +93,7 @@ class _OnboardingScreenState extends State<Productscreen> {
                 ),
               ],
 
-              const Spacer(), 
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -97,9 +101,7 @@ class _OnboardingScreenState extends State<Productscreen> {
                     children: [
                       Container(
                         height: 8,
-                        width: pageNumber == 0
-                            ? 24
-                            : 8, // Agar active hai toh lamba hoga
+                        width: pageNumber == 0 ? 24 : 8,
                         decoration: BoxDecoration(
                           color: pageNumber == 0 ? Colors.black : Colors.grey,
                           borderRadius: BorderRadius.circular(4),
@@ -128,20 +130,16 @@ class _OnboardingScreenState extends State<Productscreen> {
                     ],
                   ),
 
-                  // NEXT / GET STARTED BUTTON
                   TextButton(
                     onPressed: () {
                       setState(() {
                         if (pageNumber < 2) {
-                          // Agar abhi teesra page nahi aaya, toh agle page par jao
                           pageNumber = pageNumber + 1;
                         } else {
-                          // 👇 AGAR TEESRA PAGE HAI, TOH HOMEPAGE PAR JAO
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  const Homescreens(), // Homepage khul jayegi
+                              builder: (context) => const Welcomescreen(),
                             ),
                           );
                         }
