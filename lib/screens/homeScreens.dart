@@ -401,6 +401,7 @@ class Homescreens extends StatelessWidget {
               ),
             ),
 
+//cards
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
