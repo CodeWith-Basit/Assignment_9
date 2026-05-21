@@ -406,7 +406,7 @@ class Homescreens extends StatelessWidget {
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Cardcategory(
                       imgurl: "assets/images/product_1.jpg",
                       title: "Women Printed Kurta",
@@ -419,7 +419,7 @@ class Homescreens extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Cardcategory(
                       imgurl: "assets/images/product_2.jpg",
                       title: "Mens Sports Shoes",
@@ -432,7 +432,7 @@ class Homescreens extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Cardcategory(
                       imgurl: "assets/images/product_3.jpg",
                       title: "Mens Luxuery Watch",
@@ -445,7 +445,7 @@ class Homescreens extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Cardcategory(
                       imgurl: "assets/images/product_4.jpg",
                       title: "Women Printed Kurta",
@@ -454,7 +454,7 @@ class Homescreens extends StatelessWidget {
                       finalPrice: "₹1500",
                       price: "₹2499",
                       discount: "40%Off",
-                      rating: "56890",
+                      rating: "5689",
                     ),
                   ),
                 ],
@@ -638,7 +638,7 @@ class Homescreens extends StatelessWidget {
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Cardcategory(
                       imgurl: "assets/images/product_1.jpg",
                       title: "Women Printed Kurta",
@@ -651,7 +651,7 @@ class Homescreens extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Cardcategory(
                       imgurl: "assets/images/product_2.jpg",
                       title: "Mens Sports Shoes",
@@ -664,7 +664,7 @@ class Homescreens extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Cardcategory(
                       imgurl: "assets/images/product_3.jpg",
                       title: "Mens Luxuery Watch",
@@ -677,7 +677,7 @@ class Homescreens extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Cardcategory(
                       imgurl: "assets/images/product_4.jpg",
                       title: "Women Printed Kurta",
@@ -686,7 +686,7 @@ class Homescreens extends StatelessWidget {
                       finalPrice: "₹1500",
                       price: "₹2499",
                       discount: "40%Off",
-                      rating: "56890",
+                      rating: "5689",
                     ),
                   ),
                 ],
@@ -837,26 +837,6 @@ class Homescreens extends StatelessWidget {
             ),
           ],
         ),
-      ),
-
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
-        selectedItemColor: Colors.pink,
-        unselectedItemColor: Colors.black,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: "Wishlist",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "Cart",
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Setting"),
-        ],
       ),
     );
   }

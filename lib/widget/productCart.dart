@@ -5,8 +5,8 @@ class Cardcategory extends StatelessWidget {
   final String title;
   final String description;
   final String finalPrice;
-  final String price;
-  final String discount;
+  final String? price;
+  final String? discount;
   final String rating;
   const Cardcategory({
     super.key,
@@ -14,15 +14,15 @@ class Cardcategory extends StatelessWidget {
     required this.title,
     required this.description,
     required this.finalPrice,
-    required this.price,
-    required this.discount,
+    this.price,
+    this.discount,
     required this.rating,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 220,
+      width: 180,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2)),
@@ -37,7 +37,7 @@ class Cardcategory extends StatelessWidget {
             child: Image.asset(
               imgurl,
               width: double.infinity,
-              height: 200,
+              height: 140,
               fit: BoxFit.cover,
             ),
           ),
@@ -51,35 +51,39 @@ class Cardcategory extends StatelessWidget {
                   title,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10),
                 Text(
                   description,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 12),
                 ),
                 Text(
                   finalPrice,
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10),
 
                 Row(
                   children: [
-                    Text(
-                      price,
-                      style: TextStyle(
-                        decoration: TextDecoration.lineThrough,
-                        color: Colors.grey,
+                    if (price != null) ...[
+                      Text(
+                        price!,
+                        style: TextStyle(
+                          decoration: TextDecoration.lineThrough,
+                          color: Colors.grey,
+                        ),
                       ),
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      discount,
-                      style: TextStyle(color: Colors.red, fontSize: 16),
-                    ),
+                      SizedBox(width: 10),
+                    ],
+                    if (discount != null) ...[
+                      Text(
+                        discount!,
+                        style: TextStyle(color: Colors.red, fontSize: 14),
+                      ),
+                    ],
                   ],
                 ),
                 Row(
@@ -89,14 +93,14 @@ class Cardcategory extends StatelessWidget {
                     Icon(Icons.star, color: Colors.amber),
                     Icon(Icons.star, color: Colors.amber),
                     Icon(Icons.star_half, color: Colors.grey),
-                    SizedBox(width: 10),
+                    SizedBox(width: 3),
                     Text(
                       rating,
-                      style: TextStyle(color: Colors.grey, fontSize: 16),
+                      style: TextStyle(color: Colors.grey, fontSize: 13),
                     ),
                   ],
                 ),
-                    SizedBox(height: 10),
+                SizedBox(height: 7),
               ],
             ),
           ),
