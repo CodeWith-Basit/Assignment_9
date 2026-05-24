@@ -1,5 +1,7 @@
+import 'package:assignment_9/screens/SearchScreen.dart';
 import 'package:assignment_9/screens/cartScreen.dart';
 import 'package:assignment_9/screens/homeScreens.dart';
+import 'package:assignment_9/screens/settingScreen.dart';
 import 'package:assignment_9/screens/trendingProducts.dart';
 import 'package:flutter/material.dart';
 
@@ -48,10 +50,10 @@ class _BottomnavigationState extends State<Bottomnavigation> {
   Widget build(BuildContext context) {
     List<Widget> screens = [
       const Homescreens(),
-      Trendingproducts(onProductSelect: openProductInCart), 
-      Cartscreen(productData: selectedProductData), 
-      const Center(child: Text("Search Screen")),
-      const Center(child: Text("Settings Screen")),
+      Trendingproducts(onProductSelect: openProductInCart),
+      Cartscreen(productData: selectedProductData),
+      SearchScreen(),
+      SettingsScreen(),
     ];
     return PopScope(
       canPop: tabHistory.length <= 1,

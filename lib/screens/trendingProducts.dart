@@ -1,4 +1,3 @@
-import 'package:assignment_9/screens/cartScreen.dart';
 import 'package:assignment_9/screens/loginScreen.dart';
 import 'package:assignment_9/widget/productCart.dart';
 import 'package:flutter/material.dart';
