@@ -1,3 +1,4 @@
+import 'package:assignment_9/screens/cartScreen.dart';
 import 'package:assignment_9/screens/homeScreens.dart';
 import 'package:assignment_9/screens/trendingProducts.dart';
 import 'package:flutter/material.dart';
@@ -13,13 +14,26 @@ class _BottomnavigationState extends State<Bottomnavigation> {
   int activeTab = 0;
   List<int> tabHistory = [0];
 
-  List<Widget> screens = [
-    Homescreens(),
-    Trendingproducts(),
-    const Center(child: Text("Cart Screen")),
-    const Center(child: Text("Search Screen")),
-    const Center(child: Text("Settings Screen")),
-  ];
+  Map<String, String> selectedProductData = {};
+
+  // ⚡ 2. Function jo data set karega aur tab switch karega
+  void openProductInCart(Map<String, String> data) {
+    setState(() {
+      selectedProductData = data;
+      activeTab = 2; // Cart Tab par le jao
+      if (tabHistory.isEmpty || tabHistory.last != 2) {
+        tabHistory.add(2);
+      }
+    });
+  }
+
+  // List<Widget> screens = [
+  //   Homescreens(),
+  //   Trendingproducts(onProductSelect: openProductInCart),
+  //   Cartscreen(onProductSelect: openProductInCart),
+  //   const Center(child: Text("Search Screen")),
+  //   const Center(child: Text("Settings Screen")),
+  // ];
 
   void changeTab(index) {
     setState(() {
@@ -32,6 +46,13 @@ class _BottomnavigationState extends State<Bottomnavigation> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> screens = [
+      const Homescreens(),
+      Trendingproducts(onProductSelect: openProductInCart), 
+      Cartscreen(productData: selectedProductData), 
+      const Center(child: Text("Search Screen")),
+      const Center(child: Text("Settings Screen")),
+    ];
     return PopScope(
       canPop: tabHistory.length <= 1,
       onPopInvokedWithResult: (didPop, result) {

@@ -1,10 +1,12 @@
+import 'package:assignment_9/screens/cartScreen.dart';
 import 'package:assignment_9/screens/loginScreen.dart';
 import 'package:assignment_9/widget/productCart.dart';
 import 'package:flutter/material.dart';
 
 class Trendingproducts extends StatefulWidget {
-  const Trendingproducts({super.key});
+  const Trendingproducts({super.key, required this.onProductSelect});
 
+  final Function(Map<String, String>) onProductSelect;
   @override
   State<Trendingproducts> createState() => _TrendingproductsState();
 }
@@ -351,12 +353,17 @@ class _TrendingproductsState extends State<Trendingproducts> {
                 ),
                 itemBuilder: (context, index) {
                   final product = myProducts[index];
-                  return Cardcategory(
-                    imgurl: product["img"]!,
-                    title: product["title"]!,
-                    description: product["desc"]!,
-                    finalPrice: product["fPrice"]!,
-                    rating: product["rating"]!,
+                  return InkWell(
+                    onTap: () {
+                      widget.onProductSelect(product);
+                    },
+                    child: Cardcategory(
+                      imgurl: product["img"]!,
+                      title: product["title"]!,
+                      description: product["desc"]!,
+                      finalPrice: product["fPrice"]!,
+                      rating: product["rating"]!,
+                    ),
                   );
                 },
               ),
